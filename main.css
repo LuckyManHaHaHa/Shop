@@ -1,0 +1,459 @@
+.header{
+    height: var(--header-height);
+    background-image: linear-gradient(0, #fe6433, #f53e2d);
+}
+
+
+.header__navbar{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+/* li navbar */
+.header__navbar-item{    
+    margin: 0 8px;
+    position: relative;    
+}
+
+/* ul navbar */
+.header__navbar-list{
+    margin: 4px 0 0 0;
+    padding-left: 0 ;
+}
+
+/* li + a navbar */
+.header__navbar-item ,
+.header__navbar-item-link{
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 300;
+}
+/* li + a + i navbar */
+.header__navbar-item ,
+.header__navbar-item-link,
+.header_navbar-icon{
+    display: inline-flex;
+    align-items: center;
+}
+
+/* hover li + a + i navbar */
+.header__navbar-item:hover ,
+.header__navbar-item-link:hover,
+.header_navbar-icon:hover{
+    color: rgba(255, 255, 255, .7);    
+    cursor: pointer;
+}
+
+/* a navbar */
+.header__navbar-icon-link{
+    color: var(--white-color);
+    text-decoration: none;  /*bt ko can nhung IE hay bi nen them vao*/
+}
+
+/* icon link Fb Insta */
+.header_navbar-icon{
+    font-size: 1.8rem;
+    margin-left: 6px;
+}
+
+/* chu dam dang ky, dang nhap */
+.header__navbar-item--strong{
+    font-weight: 500;    
+}
+
+/* lam dau | */
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    position:absolute;
+    border-left: 1px solid #FB9086;
+    height: 14px;
+    right: -9px;
+    top: 50%;
+    transform:translateY(-50%); /*youtube navbar css 22.54*/
+} 
+
+/* lam mat ban tay khi tro vao label ket noi navbar */
+.header__navbar-title--no-pointer{
+    cursor: text;
+    color: var(--white-color);
+}
+
+/* bao toan bo the qr hien ra */
+.header__qr{
+    background-color: var(--white-color);
+    width: 186px;
+    position: absolute;
+    top: 118%; 
+    left: 0;
+    padding: 8px;
+    border-radius: 2px;
+    display: none; /* dung de an*/
+    animation: fadeIn ease-in .3s ;
+    z-index: 1;
+}
+
+/* lam cau noi  */
+.header__qr::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: -16px;     /* -16 de cay cau chay len tren*/
+    left: 0;
+    display: block;
+    background-color: transparent;
+}
+
+/* hien the qr khi hover li Vào cửa hàng trên ứng dụng  */
+.header__navbar-item__has-qr:hover .header__qr{
+    display: block;
+}
+/* hinh qr code */
+.header__qr-img{
+    width: 100%;
+}
+
+/* bao ngoai google play + app store */
+.header__qr-app{
+    display: flex;   
+    justify-content: space-between;    
+}
+
+/* hinh app */
+.header__qr-download-img{
+    height: 15px;
+}
+
+/* cach 2: :nth-child() -> trong ngoac la so thu tu dua con */
+/* hinh google play */
+.header__qr-download-img:first-child{
+    margin-left: 11px;
+}
+
+/* hinh app store */
+.header__qr-download-img:last-child{
+    margin-right: 11px;
+}
+
+/* div con thong bao navbar */
+.header__notify{
+    position: absolute;
+    top: 118%;
+    right: 0;
+    width: 404px;    
+    background-color: var(--white-color);
+    border-radius: 1px/ solid #D3D3D3;
+    transform-origin: calc(100% - 20px) top; /* giai thich o header notification css 2 ->15.52 */
+    animation: headerNotifyGrow ease-in .2s;
+    will-change: opacity, transform; /* de trinh duyet toi uu animation*/
+    display: none;
+    z-index: 1;
+}
+
+/* lam mui ten chi len */
+.header__notify::before{
+    content: "";
+    border-width: 20px 25px;
+    position: absolute;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    right: -1px;
+    top: -26px;
+}
+
+/* lam cau noi */
+.header__notify::after{
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 95px;
+    top: -16px;
+    right: 0;    
+}
+
+.header__navbar-item--has-notify:hover .header__notify{
+    display: block;
+} 
+
+/* animation cho div con thong bao navbar */
+@keyframes headerNotifyGrow{
+    from{
+        opacity: 0; /* do trong suot */
+        transform: scale(0); /* ti le kich thuoc */
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* tieu de the con li thong bao */
+.header__notify-header{
+    user-select: none;  /* ko cho ng dung tuong tac*/
+    cursor: default;
+    height: 40px;
+    background-color: var(--white-color);
+}
+
+/* tieu de h3 thong bao */
+.header__notify-header h3{
+    margin: 0 0 0 12px;
+    color: #999;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 40px;
+}
+
+/* ul bao quanh san pham trong the con */
+.header__notify-list{
+    padding-left: 0;
+    list-style: none;
+}
+
+/* li item san pham */
+.header__notify-item{
+    display: flex;
+}
+
+/* li item san pham hover */
+.header__notify-item:hover{
+   background-color: #f7f7f7; 
+}
+
+/* li item san pham da xem */
+.header__notify-item--viewed{
+    background-color: rgba(238, 75, 43, .08);
+
+}
+
+/* a link item san pham */
+.header__notify-link{
+    display: flex;
+    width: 100%;
+    padding:12px;    
+    text-decoration: none;
+}
+
+/* hinh san pham */
+.header__notify-img{
+    
+    width: 48px;
+    object-fit: contain; /* bo vao de ko bi bop anh*/
+}
+
+/* bao quanh ten + mo ta san pham */
+.header__notify-info{
+    margin-left: 12px;
+}
+
+/* ten sp */
+.header__notify-name{
+    display: block;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1.8rem;
+}
+
+/* chi tiet san pham */
+.header__notify-description{
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #756F6E;
+    margin-top: 4px;
+}
+
+.header__notify-footer{
+    display: flex;
+}
+
+/* margin: auto se can giua cho the
+con co the cha la display: flex */
+/* the a xem tat ca */
+.header__notify-footer-bnt{
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-size: 1.4rem;
+    font-size: 1.6rem;
+    width: 100%;
+    color: var(--text-color);    
+}
+
+/* bao quanh toan bo form auth */
+.auth-form{
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.auth-form--cotainer{
+    padding: 0 32px;
+}
+
+/* bao quanh header dang ky + dang nhap */
+.auth-form__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* nut dang ky */
+.auth-form__heading{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+/* nut dang nhap */
+.auth-form__switch-btn{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* bao quanh the 3 input 
+.auth-form__form{
+    
+} */
+
+/* the input */
+.auth-form__input{
+    width: 100%; /* de chiem het do dai form */
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    border: 1px solid var(--boder-color);
+    outline: none;  /* bo vien hien ra khi bam vao the input */
+}
+
+/* hien ro border cho con tro chuot */
+.auth-form__input:focus{
+    border-color: #888;
+}
+
+/* bao quanh policy */
+.auth-form-aside{
+    margin-top: 18px;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 12px;
+}
+
+/* dong text policy
+.auth-form__policy-text{
+    
+} */
+
+/* the a link policy */
+.auth-form-text-link{
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* bao quanh 2 nut tro lai + dang ky */
+.auth-form-controls{
+    margin-top: 80px;
+    display: flex ;
+    justify-content: end;
+}
+
+/* nut tro lai */
+.auth-form-controls--back{
+    margin-right: 8px;
+}
+
+/* bao quanh 2 the ket noi google facebook */
+.auth-form__socials{
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 36px;
+    margin-top: 22px;
+}
+.auth-form__socials-title{
+    margin: 0 36px;
+}
+
+/* icon  */
+.auth-form__socials-icon{
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--facebook{
+    color:var(--white-color);
+    background-color: #3a5a98;
+}
+
+/* nut facebook */
+.auth-form__socials--facebook
+.auth-form__socials-icon{
+    color: var(--white-color);
+}
+
+.auth-form__socials--google{
+    background-color: var(--white-color);
+}
+
+
+/* Form dang nhap */
+/* bao quanh 2 the a */
+.auth-form__help{
+    display: flex;
+    justify-content: flex-end;    
+}
+
+/* the a */
+.auth-form__help-link{
+    text-decoration: none;
+    color: #939393;
+    font-size: 1.4rem;
+    ;
+}
+
+/* khoang cach giua 2 the a */
+.auth-form__help-separate{
+    margin: 4px 16px 0;
+    display: block;
+    height: 22px;
+    border-left: 1px solid #EAEAEA;
+}
+
+/* the a quen mat khau */
+.auth-form__help-link-forgot{
+    color: var(--primary-color);
+}
+
+/* the bao quanh logo shopee 
++ the input search + icon cart*/
+.header-with-search{
+    height: 77px;
+}
+
+/* logo shoppee */
+.header-logo{
+
+}
+
+/* the input search */
+.header-search{
+
+}
+
+/* icon gio hang */
+.header-cart{
+
+}

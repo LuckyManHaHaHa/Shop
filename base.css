@@ -1,0 +1,118 @@
+:root{
+    --white-color:#fff; 
+    --black-color:#000;
+    --text-color:#333;
+    --primary-color:rgb(238, 75, 43);
+    --boder-color:#bdbdbd; 
+    --navbar-height:34px;
+    --header-height:120px;
+    --header-with-search-height:cal( var(--header-height) - var(--navbar-height));
+}
+h1{
+    width: calc();
+}
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size:62.5%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.grid{
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+.grid{
+    width: 100%;
+}
+
+.grid_row{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* animation hien ra tu tu */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* animation phinh to ra tu tu */
+@keyframes Growth{
+    from{
+        transform: scale(var(--growth-from));        
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+.modal{   
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    display: flex;
+    animation: fadeIn linear .1s ;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.modal__body{        
+    --growth-from: .7;
+    --growth-to: 1;
+    margin: auto;
+    position: relative;
+    z-index: 1; /* z-index: cao len 1 lop layer*/
+    animation: Growth linear .1s ;
+}
+
+.btn{
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    line-height: 1.6rem;
+    border-radius: 2px;
+    font-size: 1.5rem;        
+    padding: 0 12px;
+    cursor: pointer;
+    color: var(--text-color);
+    justify-content: center;
+    align-items: center; 
+    outline: none;
+    color: var(--text-color);    
+}
+
+.btn.btn--size-s{
+    height: 32px;
+    line-height: 12px;   
+    padding: 0 8px; 
+}
+
+.btn--normal:hover{
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.btn.btn--primary{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disable{
+    color: #ccc;
+    background-color: #c3c3c3;
+    cursor:default;
+}
